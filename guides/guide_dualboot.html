@@ -24,18 +24,18 @@
         <p> Suppose you freshly installed Linux alongside Windows in the same machine, then there 
             are several "sync" issues need to be taken care of. The solutions has been tested in my
             specific cases of pop_os! and Windows. They should
-            work for most distribution.
+            work for most distributions.
         </p>
 
         <h4>Time not in sync<sup><a href="#fn1" id="ref1">1</a></sup></h4>
         <p>
-            For timezone, Linux calibrates clock according to Universal Time Coordinated,
-            whereas Windows use local time from your location. Thus, if you reboot into Windows
+            For timezone, Linux calibrates clock according to Universal Time Coordinated (UTC),
+            whereas Windows uses local time from your location. Thus, if you reboot into Windows
             from Linux, you will see that clock differs by several hours - Windows has incorrect time.
             The most straight
-            forward fix is to fix it within Linux to let it read local time:
+            forward way is to fix it within Linux to let it read local time:
             <pre><code class="language-bash"> sudo timedatectl set-local-rtc 1 </code></pre>
-            If you wish to revert it, set 1 to 0.
+            Then, this issue is resolved. If you wish to revert the setting, set 1 to 0.
         </p>
 
 
@@ -47,16 +47,19 @@
           If you would like to use the same bluetooth device, say headphone,
           on both OS, you need to tweak a bit after initial pairing for each
           OS. Out of the box, after paired on Linux and then paired on Windows, 
-          boot back into Linux, you will find the same headphone is not working.
+          boot back to Linux, you will find the headphone is not working.
         </p>
         <p>
-          Headphone will generated a unique key when it first connected to
-          the OS, and this key does not sync between different systems. Thus, we need to sync it
-          manually, preferably working from Linux, thanks to its powerful bash-terminal.
+          Bluetooth device, once initially paired, generates a unique key, 
+          and this key does not sync between different systems. Thus, we need to sync it
+          manually, preferably working from Linux terminal, if you do not want to mess with
+          Windows registry.
         </p>
         <p>
           <a href="https://github.com/spxak1">spxak1</a> detailed the guide using
           <code>chntpw</code> <a href="https://github.com/spxak1/weywot/blob/main/guides/bt_dualboot.md">here</a>. 
+          Once followed through, my headphone Sony WH-1000XM5 worked for both Pop_os! and Windows
+          without repairing! 
         </p>
 
         <p>
