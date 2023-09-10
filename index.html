@@ -1,113 +1,116 @@
 <!DOCTYPE html>
-<!--
-    Plain-Academic by Vasilios Mavroudis
-    Released under the Simplified BSD License/FreeBSD (2-clause) License.
-    https://github.com/mavroudisv/plain-academic
--->
-
 <html lang="en">
 <head>
-  <title>John Doe</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Academic Website</title>
+    <link rel="stylesheet" href="https://latex.now.sh/style.css">
 </head>
-<body>
-
-
-<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-	  <div class="container">
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  <ul class="nav navbar-nav">
-				  <li><a href="index.html">Home</a></li>
-				  <li><a href="#">Projects</a></li>
-				  <li><a href="#publications">Publications</a></li> 
-				  <li><a href="#">CV</a></li> 
-		  </ul>
-		</div>
-	  </div>
-	</nav>
-  
-  <!-- Page Content -->
-    <div class="container">
-
-        <div class="row">
-
-            <!-- Entries Column -->
-            <div class="col-md-8" style="height: 100vh;">
-                
-                <!-- Main Image -->
-                <img class="img-responsive" src="photo.gif" alt=""><br>
-                
-                <div style="margin-top:3%; text-align:justify;">                
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing <a href="#">elit</a>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					
-					<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-					
-					<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                </div>
-            </div> 
-
-            <!-- Contact Info on the Sidebar -->
-            <div class="col-md-4">
-                <div style="font-family: 'Oswald', sans-serif; font-size: 32px;"><b>John Doe</b></div><br>
-                <p><b>john at doe.com</b><br>
-                <p>Random Department<br>
-                University of Randomness<br>
-                Street<br>
-                City <br>
-                Country<br>
-                </p>
-            </div>
-            
-            
-            <!-- Links on the Sidebar -->
-            <div class="col-md-4" style="margin-top:2%">
-              <dd><a href="#">Google Scholar</a></dd> 
-              <dd><a href="#">Twitter</a></dd>
-              <dd><a href="#">LinkedIn</a></dd>
-            </div>
-            
-            
-            <!-- Publications -->
-            <div class="col-md-8" style="height: 100vh;">    
-                <h2 id="publications">Publications</h2>
-                
-                <strong>Peer-reviewed</strong><br/>
-                <ul>
-                <li class="paper" words="add, your, keywords, here"><a href="#">Full title</a> Names of the authors</li>
-                </ul>
-            
-                <strong>Technical Reports</strong><br/>
-                <ul>
-                <li class="paper" words="add, your, keywords, here"><a href="#">Full title</a>. Details of the report</li>
-                </ul>
-            </div>
-
-            
-        </div>
-
-
-    </div>
-    <!-- /.container -->
+<body class="libertinus" style="background-color: #d6d0d0;">
+    <header>
+        <h1 class="header-title">Niuniu Zhang</h1>
+        <figure style="display: flex; flex-direction: column; align-items: center; height: 55vh;">
+            <img src="Portrait.jpg" alt="Your Profile Picture" class="profile-picture" style="width: 350px; height: auto;">
+            <figcaption>
+                <a href="https://github.com/niuniu-zhang" target="_blank">github</a> |
+                <a href="https://scholar.google.com/citations?user=GUi1JyUAAAAJ&hl=en" target="_blank">google.scholar</a> |
+                <a href="asset/cv.pdf" target="_blank">cv</a> |
+                niuniu [at] sas.upenn.edu | he/him
+            </figcaption>            
+        </figure>
+    </header>
     
-    <!-- Other people may like it too! -->
-    <a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Plain Academic</a> 
-    
+
+
+
+    <main>
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                I am a research assistant in the Stevens Center for Innovation in Finance at the Wharton
+                School, University of Pennsylvania, advised by Prof. <a href="https://fnce.wharton.upenn.edu/profile/musto/">David Musto</a>
+                and Prof. <a href="https://www.cis.upenn.edu/~fbrett/">Brett Hemenway Falk</a>. 
+                I am broadly interested in the blockchain technology and have worked on the modeling 
+                aspects of decentralized finance (DeFi). 
+            </p>
+            </p>
+                This May, I earned my MA in Applied Mathematics (<a href="https://www.amcs.upenn.edu/">AMCS</a>) from the University of Pennsylvania.
+                During my studies, I was fortunate to be advised by Prof. <a href="https://www.cis.upenn.edu/~fbrett/">Brett Hemenway Falk</a> and 
+                Prof. <a href="https://gerrytsoukalas.com/">Gerry Tsoukalas</a>. 
+            </p>
+
+            </p>
+                Prior to Penn, I obtained my MA in Visual Arts Administration from New York University under the guidance of
+                Prof. <a href="https://steinhardt.nyu.edu/people/amy-whitaker">Amy Whitaker</a>, and BS
+                in Mathematics from Union College with departmental honors, summa cum laude, and Phi Beta Kappa.
+            </p>
+        </section>
+
+        <!-- Contents Section -->
+        <section id="contents">
+            <h2>Contents</h2>
+            <ul>
+                <li><a href="#articles">Articles</a></li>
+                <li><a href="#guides">Guides</a></li>
+                <li><a href="#notes">Notes</a></li>
+            </ul>
+        </section>
+
+        <section id="articles">
+            <h2>Articles</h2>
+            <h3>Under Review / Working Papers</h3>
+            <ul>
+                <li>
+                    <a href="https://arxiv.org/abs/2212.00292">“Economics of NFTs: The Value of Creator Royalties”</a>, Falk, B and G. Tsoukalas, and N. Zhang (2022)
+                    <ul>
+                        <li>Selected and presented at <a href="https://www.youtube.com/watch?v=5ZRmnMqshMs">March 2023 Symposium of Crypto & Blockchain Economics Research Forum</a> (online panelist)</li>
+                    </ul>
+                </li>
+            </ul>
+            <h3>Theses</h3>
+            <ul>
+                <li><a href="https://ssrn.com/abstract=3848647">"Being An Artist Is Hard: Navigating the Dynamics of Money and Power"</a>, Zhang, N. (2021)</li>
+                <li><a href="https://digitalworks.union.edu/theses/2364">"Category Theory and Universal Property"</a>, Zhang, N. (2019)</li>
+                <li><a href="https://digitalworks.union.edu/theses/2354">"La Nouvelle Vague est-elle un cinéma existentialiste français?"</a>, Zhang, N. (2019)</li>
+            </ul>
+        </section>
+        <a href="#top" class="top-link">[Top]</a>
+
+        <!-- Guides Section (Placeholder) -->
+        <section id="guides">
+            <h2>Guides</h2>
+            <p>Tutorials that have helped me and worth sharing.</p>
+            <h3> Linux </h3>
+            <ul>
+                <li><a href="guides/guide_dualboot.html">how to dual boot pop_os! and windows? (WIP)</a></li>
+                <!-- Add more guide links as needed -->
+            </ul>
+        </section>
+        <a href="#top" class="top-link">[Top]</a>
+
+        <!-- Notes Section (Placeholder) -->
+        <section id="notes">
+            <h2>Notes</h2>
+            <p> Partial solution/attempt of past <a href="https://www.amcs.upenn.edu/exams/written-preliminary-exam">Penn AMCS Preliminary exam</a>.</p>
+            <ul>
+                <li><a href="https://www.overleaf.com/read/gytqpgvrvqcr">Penn AMCS prelim solution</a></li>
+            </ul>
+
+            <p>Selected notes from my prior math classes.</p>
+            <ul>
+                <li><a href="asset/602_finalreview.pdf">Graduate Algebra I final review sheet</a></li>
+                <li><a href="asset/648_finalreview.pdf">Probability Theory final review sheet</a></li>
+                <li><a href="asset/649_midtermIreview.pdf">Stochastic Process review I</a></li>
+                <li><a href="asset/649_midtermIIreview.pdf">Stochastic Process review II</a></li>
+
+                <!-- Add more note links as needed -->
+            </ul>
+        </section>
+        <a href="#top" class="top-link">[Top]</a>
+    </main>
+
+    <!-- Add your footer or other content here -->
+
 </body>
-
 </html>
