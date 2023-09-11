@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSH Basics</title>
+    <link rel="stylesheet" href="https://latex.now.sh/style.css">
+    <link rel="stylesheet" href="https://latex.now.sh/prism/prism.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+</head>
+<body class="libertinus" style="background-color: #d6d0d0;">
+    <footer>
+        <!-- Your guide-specific footer content here -->
+        <p><a href="../index.html">[Home]</a></p>
+    </footer>
+    <header>
+        <!-- Your guide-specific header content here -->
+        <h2 class="header-title">Basics of SSH<sup><a href="#fn1" id="ref1">1</a></sup></h2>
+    </header>
+    
+    <main>
+        <!-- Your guide content here -->
+        <p>
+            Secure Shell Protocol (SSH) is a cryptographic network tool.
+            One of the most common usages is remote server access. For example, one can use SSH 
+            connecting local Git repository to Github, which negates the input of Github account
+            password every time and is considered much safer.
+        </p>
+
+        <h3>Keygen</h3>
+        <p>
+            SSH as a command line tool is available natively on MacOS, Linux, and 
+            newer Windows. For these system, the terminal syntax should be similar if 
+            not the same. The idea of SSH is to use public and private key cryptographic 
+            method to safely establish connection between local and remote. We generate the 
+            keypair by 
+            <pre><code class="language-bash">ssh-keygen -t ed25519 -C "your-comments"</code></pre>
+            Note that <code>-t</code> flag specifies which cryptographic algorithm one is using, in our 
+            case <code>ed25519</code>, and <code>-C</code> flag prompt a comment along with your key file.
+            Why <code>ed25519</code>? 
+            <a href="https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54">Some</a> 
+            argues that <code>ed25519</code> is faster, safer, and more efficient 
+            than the famous <code>RSA</code> algorithm. I like its short and compact public key compared
+            to its <code>RSA</code> counterpart.
+        </p>
+        <p>
+            Once type the command, you will be prompted to enter a file location and file name to save the keypair, 
+            typically in your <code>home/usr/.ssh</code> folder. Make sure you name it something sensible 
+            or go ahead with the default location. For demonstration, let's say you set
+            <pre><code class="language-bash">/home/usr/.ssh/id_ed25519</code></pre>
+        </p>
+        <p>
+            Then, you will be prompted to enter a passphrase. In the event someone has access to
+            your drive, especially your keypair file, they must enter the passphrase in order to
+            use your keypair. Thus, passphrase is your last defense. At this point, your keypair 
+            is generated, namely, two files <code>id_ed25519</code> and <code>id_ed25519.pub</code>
+            are generated in your <code>.ssh</code> folder. It is okay to share the <code>.pub</code>
+            file since it is your public key, but never expose <code>id_ed25519</code> (no suffix) to anyone.
+        </p>
+
+        <h3>ssh-agent</h3>
+        <p>
+            You have the key generated, then what? Who manages
+            your key? ssh-agent! ssh-agent is a background process that handles the key, you must add
+            your key to the agent for it to be usable. In certain operating systems, ssh-agent is a start-up 
+            process that automatically starts on boot, and sometimes it also automatically add your key file
+            after generated. However, not all system has this feature, so should you want to start the process manually,
+            type
+            <pre><code class="language-bash">eval "$(ssh-agent -s)"</code></pre>
+            Then, add your key by 
+            <pre><code class="language-bash">ssh-add ~/.ssh/id_ed25519"</code></pre>
+            Note that you added your private key to ssh-agent rather than your public key. 
+            At this point, your key is ready to be used. For example, you can 
+            <pre><code class="language-bash">cat ~/.ssh/id_ed25519.pub</code></pre>
+            then <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">paste your public key to Github</a> to enjoy
+            password-less user experience while knowing it is safer than conventional password!
+        </p>
+    </main>
+
+
+
+    <div class="footnotes">
+        <p id="fn1">
+          1. From
+          <a
+            href="https://www.ssh.com/academy/ssh/keygen">https://www.ssh.com/academy/ssh/keygen</a> and
+            <a href="https://www.youtube.com/watch?v=kjFz7Lp8Qjk&t=595s">https://www.youtube.com/watch?v=kjFz7Lp8Qjk&t=595s</a>.
+          <a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a>
+        </p>
+    </div>
+
+</body>
+</html>
