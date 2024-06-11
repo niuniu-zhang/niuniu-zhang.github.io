@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSCode + LaTex on Linux</title>
+    <link rel="stylesheet" href="https://latex.now.sh/style.css">
+    <link rel="stylesheet" href="https://latex.now.sh/prism/prism.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+</head>
+<body class="libertinus" style="background-color: #d6d0d0;">
+    <footer>
+        <!-- Your guide-specific footer content here -->
+        <p><a href="../index.html">[Home]</a></p>
+    </footer>
+    <header>
+        <!-- Your guide-specific header content here -->
+        <h2 class="header-title"><span class="latex">L<span>a</span>T<span>e</span>X</span> with VSCode on Linux<sup><a href="#fn1" id="ref1">1</a></sup></h2>
+    </header>
+    
+    <main>
+        <!-- Your guide content here -->
+        <p> 
+            VSCode is a powerful and popular code editor from Microsoft. It supports a wide-array 
+            of extensions making your coding experience enjoyable. Though Overleaf, a web-based <span class="latex">L<span>a</span>T<span>e</span>X</span>
+            compiler, provides one stop solution, I personally find more flexibility in using VSCode + Github
+            writing <span class="latex">L<span>a</span>T<span>e</span>X</span>.
+            Here's how to set it up using VSCode extension <a href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop">LaTex Workshop</a>.
+        </p>
+
+        <h3>VSCode vs VSCodium</h3>
+        <p>
+            Nothing is perfect. It is import to point out VSCode, as a proprietary software from
+            Microsoft, <a href="https://code.visualstudio.com/docs/getstarted/telemetry">collects user data</a>. 
+            If you do mind the telemetry, <a href="https://vscodium.com/">VSCodium</a> is a wonderful open-source alternative to VSCode that
+            is compatible with VSCode Extension. Some minor <a href="https://github.com/VSCodium/vscodium/blob/master/DOCS.md#extensions-marketplace"> tweaks</a>
+            are required.
+            This guide assumes you are using standard VSCode.
+        </p>
+
+        <h3> <span class="latex">L<span>a</span>T<span>e</span>X</span> Installation</h3>
+        <p>
+            Assuming you are using Debian-based distro that has <code>apt</code> package manager,
+            the process should be straight-forward. First, you need to install bunch of
+            <code>texlive</code> related packages to set up <span class="latex">L<span>a</span>T<span>e</span>X</span> environment. 
+            For a standard usage of <span class="latex">L<span>a</span>T<span>e</span>X</span>
+            in academia, it suffices to install these three packages by
+            <pre><code class="language-bash">sudo apt-get install texlive-latex-extra texlive-science texlive-pictures</code></pre>
+        </p>
+        <p>
+            For future reference, should you need more <span class="latex">L<span>a</span>T<span>e</span>X</span> packages, look them up
+            by
+            <pre><code class="language-bash">sudo apt search texlive</code></pre>
+            then install them by
+            <pre><code class="language-bash">sudo apt install [package-name]</code></pre>
+            Personally, since I use <span class="latex">L<span>a</span>T<span>e</span>X</span> to write my CV
+            with <code> EB Garamond</code> font, a non-standard one, I have to install one more package
+            by
+            <pre><code class="language-bash">sudo apt install texlive-fonts-extra</code></pre>
+            At this point, <span class="latex">L<span>a</span>T<span>e</span>X</span> environment is installed.
+        </p>
+
+        <h3>Extension set-up</h3>
+        <p> 
+            Once you installed VSCode, go to extension marketplace to get <a href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop">LaTex Workshop</a>.
+            For it to work smoothly, you need to install few extra packages by
+            <pre><code class="language-bash">sudo apt-get install texlive-extra-utils latexmk</code></pre>
+            Et Voila! You are all set to write <span class="latex">L<span>a</span>T<span>e</span>X</span> on VSCode. After
+            you wrote some code, press the green bottom to build the project, then you can preview the PDF on
+            your right side.
+        </p>
+
+        <h3>Tips</h3>
+        <p>
+            One extra thing worth mentioning, that I wish I knew earlier, is <a href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop">LaTex Workshop</a> provides
+            PDF to Source and Source to PDF by using <code>Ctrl + left click</code>.
+        </p>
+    </main>
+
+
+
+    <div class="footnotes">
+        <p id="fn1">
+          1. From
+          <a
+            href="https://dev.to/yjdoc2/setting-up-latex-3104">https://dev.to/yjdoc2/setting-up-latex-3104</a>.
+          <a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a>
+        </p>
+    </div>
+
+</body>
+</html>

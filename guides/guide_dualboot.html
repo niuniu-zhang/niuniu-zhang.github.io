@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dualboot sync issues</title>
+    <link rel="stylesheet" href="https://latex.now.sh/style.css">
+    <link rel="stylesheet" href="https://latex.now.sh/prism/prism.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+</head>
+<body class="libertinus" style="background-color: #d6d0d0;">
+    <footer>
+        <!-- Your guide-specific footer content here -->
+        <p><a href="../index.html">[Home]</a></p>
+    </footer>
+    <header>
+        <!-- Your guide-specific header content here -->
+        <h2 class="header-title">What to do after installing Windows and Linux?</h2>
+    </header>
+    
+    <main>
+        <!-- Your guide content here -->
+        <p> Suppose you freshly installed Linux alongside Windows in the same machine, then there 
+            are several "sync" issues need to be taken care of. The solutions has been tested in my
+            specific cases of pop_os! and Windows. They should
+            work for most distributions.
+        </p>
+
+        <h4>Time not in sync<sup><a href="#fn1" id="ref1">1</a></sup></h4>
+        <p>
+            For timezone, Linux calibrates clock according to Universal Time Coordinated (UTC),
+            whereas Windows uses local time from your location. Thus, if you reboot into Windows
+            from Linux, you will see that clock differs by several hours - Windows has incorrect time.
+            The most straight
+            forward way is to fix it within Linux to let it read local time:
+            <pre><code class="language-bash"> sudo timedatectl set-local-rtc 1 </code></pre>
+            Then, this issue is resolved. If you wish to revert the setting, set 1 to 0.
+        </p>
+
+
+        <h4>Bluetooth not in sync<sup><a href="#fn2" id="ref2">2</a></sup></h4>
+        <p>
+            Shout out to power users <a href="https://github.com/spxak1">spxak1</a> and <a href="https://github.com/x2es">x2es</a>!
+        </p>
+        <p>
+          If you would like to use the same bluetooth device, say headphone,
+          on both OS, you need to tweak a bit after initial pairing for each
+          OS. Out of the box, after paired on Linux and then paired on Windows, 
+          boot back to Linux, you will find the headphone is not working.
+        </p>
+        <p>
+          Bluetooth device, once initially paired, generates a unique key, 
+          and this key does not sync between different systems. Thus, we need to sync it
+          manually, preferably working from Linux terminal, if you do not want to mess with
+          Windows registry.
+        </p>
+        <p>
+          <a href="https://github.com/spxak1">spxak1</a> detailed the guide using
+          <code>chntpw</code> <a href="https://github.com/spxak1/weywot/blob/main/guides/bt_dualboot.md">here</a>. 
+          Once followed through, my headphone Sony WH-1000XM5 worked for both Pop_os! and Windows
+          without re-pairing! 
+        </p>
+
+        <p>
+          Alternatively, <a href="https://github.com/x2es">x2es</a> has written a <a href="https://github.com/x2es/bt-dualboot#advantages-and-alternatives">Python program</a> to
+          automate the process, but it did not work for me. Try it yourself!
+        </p>
+
+    </main>
+
+
+
+    <div class="footnotes">
+        <p id="fn1">
+          1. From
+          <a
+            href="https://www.makeuseof.com/fix-dual-booting-linux-wrong-windows-time/">https://www.makeuseof.com/fix-dual-booting-linux-wrong-windows-time/</a>. 
+            Note that this website has a typo, i.e., <code class="language-bash"> sudo timedatectl set-local rtc 1 </code> is incorrect.
+          <a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a>
+        </p>
+        <p id="fn2">
+          2. From
+          <a href="https://github.com/spxak1/weywot/blob/main/guides/bt_dualboot.md">https://github.com/spxak1/weywot/blob/main/guides/bt_dualboot.md</a>
+          and <a href="https://github.com/x2es/bt-dualboot#advantages-and-alternatives">https://github.com/x2es/bt-dualboot#advantages-and-alternatives</a>.
+          <a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a>
+        </p>
+    </div>
+
+</body>
+</html>

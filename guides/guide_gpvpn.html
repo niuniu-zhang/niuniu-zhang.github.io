@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobalProtect SSL failure</title>
+    <link rel="stylesheet" href="https://latex.now.sh/style.css">
+    <link rel="stylesheet" href="https://latex.now.sh/prism/prism.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+</head>
+<body class="libertinus" style="background-color: #d6d0d0;">
+    <footer>
+        <!-- Your guide-specific footer content here -->
+        <p><a href="../index.html">[Home]</a></p>
+    </footer>
+    <header>
+        <!-- Your guide-specific header content here -->
+        <h2 class="header-title">How to use GlobalProtect VPN on Linux?<sup><a href="#fn1" id="ref1">1</a></sup></h2>
+    </header>
+    
+    <main>
+        <!-- Your guide content here -->
+        <p> 
+            GlobalProtect is a widely used VPN app for schools and works. In my use case, I need to log into 
+            the school network via GlobalProtect in order to SSH into the server. GlobalProtect works out of the box for Mac
+            and Windows. However, on Linux, it is common that GlobalProtect encounters SSL handshake failure 
+            due to deprecated dependency packages as follows:
+            <pre><code class="language-bash">SSL handshake failed
+Failed to load URL https://[your organization].</code></pre>
+        </p>
+        <p>
+          Don't panic! You are not alone. A simple solution is to tweak your OS's 
+          <code>OpenSSL</code> configuration file. Usually, it locates at 
+          <code>/usr/lib/ssl/openssl.cnf</code>. You need to either add or edit:
+          <pre><code class="language-bash">[system_default_sect]
+Options = UnsafeLegacyRenegotiation</code></pre>
+            It is possible this configuration change brings some vulnerability. Do use it at your own risk.
+        </p>
+    </main>
+
+
+
+    <div class="footnotes">
+        <p id="fn1">
+          1. From
+          <a
+            href="https://askubuntu.com/questions/1427737/global-protect-vpn-ssl-handshake-fails">https://askubuntu.com/questions/1427737/global-protect-vpn-ssl-handshake-fails</a>.
+          <a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a>
+        </p>
+    </div>
+
+</body>
+</html>
